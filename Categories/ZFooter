@@ -1,0 +1,25 @@
+[submenu] (Fluxbox menu)
+      [config] (Configure) 
+[submenu] (System Styles) {Choose a style...}
+      [stylesdir] (/usr/share/fluxbox/styles) 
+[end]
+[submenu] (User Styles) {Choose a style...}
+      [stylesdir] (~/.fluxbox/styles) 
+[end]
+      [workspaces] (Workspace List) 
+[submenu] (Tools)
+      [exec] (Run) {rofi -show drun} 
+      [exec] (Regen Menu) {fluxbox-generate_menu} 
+[end]
+      [commanddialog] (Fluxbox Command) 
+      [reconfig] (Reload config) 
+      [exec] (About) {(fluxbox -v; fluxbox -info | sed 1d) | xmessage -file - -center} 
+[end]
+      [separator] 
+      [exec] (Refresh Menu) {fluxbox-generate_menu} 
+      [separator] 
+      [exec] (Log Out) {fluxbox-remote exit} 
+      [exec] (Restart) {reboot} 
+      [exec] (Shutdown) {poweroff} 
+[endencoding]
+[end]

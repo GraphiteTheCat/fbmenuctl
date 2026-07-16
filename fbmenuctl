@@ -1,0 +1,30 @@
+#!/bin/bash
+
+sudo chmod +x /usr/local/libexec/fbmenuctl_gui.py
+sudo chmod +x /usr/local/libexec/fbmenuctl_cli.py
+
+help() {
+	echo "Usage: fbmenuctl [options]"
+	echo "Options:"
+	echo "	-h	--help		Show the help message"
+	echo "	--cli			Use the cli version of the program"
+}
+
+while [[ $# -gt 0 ]] do
+	case "$1" in
+		-h|--help)
+			help
+			exit 0
+			;;
+		--cli)
+			echo "CLI WIP"
+			python /usr/local/libexec/fbmenuctl_cli.py
+			exit 1
+			;;
+		*)
+			echo "ERROR: Not a valid argument"
+			;;
+	esac
+done
+
+python3 /usr/libexec/fbmenuctl_gui.py
