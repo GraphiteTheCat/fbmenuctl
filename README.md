@@ -142,6 +142,8 @@ NOTE: The GUI is **VERY POORLY WRITTEN**.
 
 - Make it use your default applications, instead of the only ones supported.
 
+- Icons (Working on it, and it's a pain)
+
 - Add an uninstaller
 
 - Who knows?
