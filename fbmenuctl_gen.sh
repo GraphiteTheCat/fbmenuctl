@@ -51,10 +51,12 @@ scrape_categories() {
 }
 
 handle_categories(){
+	if [ -f "$CATDIR/1Header" ]; then cat "$CATDIR/1Header" >> "$MENU"; fi
+	if [ -f "$CATDIR/ZFooter" ]; then cat "$CATDIR/ZFooter" >> "$MENU"; fi
 	for CATEGORY in "$CATDIR"*;
 	do
 		if [ "$(basename "$CATEGORY")" == "1Header" ] || [ "$(basename "$CATEGORY")" == "ZFooter" ]; then
-			cat "$CATEGORY" >> "$MENU"
+			continue
 		elif [ -s "$CATEGORY" ]; then
 			echo "$CATEGORY located!"
 			scrape_categories "$CATEGORY"
