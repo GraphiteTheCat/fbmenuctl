@@ -37,7 +37,8 @@ However- **this utility requires the use of xterm as your default terminal, and 
 3) Type the following commands:
 
 ```
-cd ~/Downloads/fbmenuctl
+tar -xvf ~/Downloads/fbmenuctl*.tar.gz -C ~/Downloads
+cd ~/Downloads/fbmenuctl*
 ./install.sh
 ```
 
@@ -80,7 +81,7 @@ The parser is located within /bin/fbmenuctl_gen.sh, and does the following:
 
 3) Read all of the lines within it.
 
-4) Append them to ~/.fluxbox/menu according to the prefix, and arguments.
+4) Append them to ~/.fluxbox/menu-fbmenuctl according to the prefix, and arguments.
 
 Feel free to mod it at any time!
 
@@ -133,6 +134,8 @@ NOTE: The GUI is **VERY POORLY WRITTEN**.
 3) Remove **fbmenuctl_gui.py** from **/usr/libexec**
 
 4) Remove the entire **~/.local/share/fbmenuctl** folder.
+
+5) Remove **menu-fbmenuctl** from **~/.fluxbox**
 
 --- 
 

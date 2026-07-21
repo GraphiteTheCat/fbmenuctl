@@ -5,7 +5,7 @@ CATDIR="$HOME/.local/share/fbmenuctl/"
 
 
 #Fluxbox menu file
-MENU="$HOME/.fluxbox/menu"
+MENU="$HOME/.fluxbox/menu-fbmenuctl"
 
 #Source directories
 DESKDIR="/usr/share/applications/"	#Desktop Files
@@ -28,10 +28,10 @@ scrape_categories() {
 				echo "[exec] ($NAME) {$EXEC}" >> "$MENU"
 				;;
 			B::*) #Bin
-				echo "[exec] (${LINE#B::}) {xterm -e ${LINE#B::}}" >> "$MENU"
+				echo "[exec] (${LINE#B::}) {xdg-terminal-exec ${LINE#B::}}" >> "$MENU"
 				;;
 			C::*) #Command
-				echo "[exec] (${LINE#C::}) {xterm -e ${LINE#C::}}" >> "$MENU"
+				echo "[exec] (${LINE#C::}) {xdg-terminal-exec ${LINE#C::}}" >> "$MENU"
 				;;
 			F::*) #Folder
 				echo "[exec] (${LINE#F::}) {xdg-open ${LINE#F::}}" >> "$MENU"
@@ -51,11 +51,10 @@ scrape_categories() {
 }
 
 handle_categories(){
-	if [ -f "$CATDIR/1Header" ]; then cat "$CATDIR/1Header" >> "$MENU"; fi
-	if [ -f "$CATDIR/ZFooter" ]; then cat "$CATDIR/ZFooter" >> "$MENU"; fi
+	if [ -f "$CATDIR/Header" ]; then cat "$CATDIR/Header" >> "$MENU"; fi
 	for CATEGORY in "$CATDIR"*;
 	do
-		if [ "$(basename "$CATEGORY")" == "1Header" ] || [ "$(basename "$CATEGORY")" == "ZFooter" ]; then
+		if [ "$(basename $CATEGORY)" == "Header" ] || [ "$(basename $CATEGORY)" == "Footer" ]; then
 			continue
 		elif [ -s "$CATEGORY" ]; then
 			echo "$CATEGORY located!"
@@ -64,6 +63,8 @@ handle_categories(){
 			echo "$CATEGORY is empty. Skipping..."
 		fi
 	done
+        if [ -f "$CATDIR/Footer" ]; then cat "$CATDIR/Footer" >> "$MENU"; fi
+
 }
 
 echo "" > "$MENU"

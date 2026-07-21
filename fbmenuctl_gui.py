@@ -180,7 +180,7 @@ def load_catfiles():
 	to_list = []
 
 	for file in to_var.iterdir():
-		if file.is_file() and file.name not in ["1Header", "ZFooter"]:
+		if file.is_file() and file.name not in ["Header", "Footer"]:
 			to_list.append(file.name)
 	to_dir.config(values=to_list)
 	catrem_cbox.config(values=to_list)
