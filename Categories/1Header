@@ -1,5 +1,0 @@
-[begin] (Fluxbox)
-[encoding] {UTF-8}
-      [exec] (xterm) {xterm} 
-      [exec] (firefox) {firefox} 
-      [exec]   (Run) {rofi -show drun}
